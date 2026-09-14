@@ -1,0 +1,187 @@
+<div class="space-y-8">
+  <!-- Top banner & Title -->
+  <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+    <div>
+      <h1 class="text-2xl sm:text-3xl font-bold tracking-tight text-white flex items-center gap-3">
+        Supervision Opérationnelle & Fret
+        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+          <span class="w-1.5 h-1.5 mr-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          En direct
+        </span>
+      </h1>
+      <p class="text-sm text-slate-400 mt-1">
+        Indicateurs clés de performance logistique, taux de ponctualité SLA et flux inter-entrepôts.
+      </p>
+    </div>
+
+    <div class="flex items-center gap-3">
+      <button (click)="refresh()" class="px-3.5 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 text-xs font-semibold flex items-center gap-2 transition-colors">
+        <span>🔄</span> Actualiser
+      </button>
+      <a routerLink="/shipments" class="px-4 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold shadow-lg shadow-indigo-600/20 transition-all">
+        + Gérer les Expéditions
+      </a>
+    </div>
+  </div>
+
+  <!-- KPI Grid -->
+  @if (dashboardStore.metrics(); as m) {
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <!-- Total Shipments -->
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-sm relative overflow-hidden group hover:border-slate-700 transition-colors">
+        <div class="flex justify-between items-start">
+          <div>
+            <p class="text-xs font-medium text-slate-400 uppercase tracking-wider">Volume Total Fret</p>
+            <h3 class="text-3xl font-extrabold text-white mt-2">{{ m.totalShipments }}</h3>
+            <span class="text-xs text-slate-400 mt-1 inline-block">colis & conteneurs suivis</span>
+          </div>
+          <div class="w-11 h-11 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center text-xl border border-indigo-500/20">
+            📦
+          </div>
+        </div>
+        <div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center text-xs text-indigo-400 font-medium">
+          <span>Flux multi-plateformes actifs</span>
+        </div>
+      </div>
+
+      <!-- In Transit -->
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-sm relative overflow-hidden group hover:border-slate-700 transition-colors">
+        <div class="flex justify-between items-start">
+          <div>
+            <p class="text-xs font-medium text-slate-400 uppercase tracking-wider">En Transit Actif</p>
+            <h3 class="text-3xl font-extrabold text-indigo-400 mt-2">{{ m.inTransitShipments }}</h3>
+            <span class="text-xs text-slate-400 mt-1 inline-block">acheminement routier & maritime</span>
+          </div>
+          <div class="w-11 h-11 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center text-xl border border-indigo-500/20">
+            🚚
+          </div>
+        </div>
+        <div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center text-xs text-slate-400">
+          <span class="text-emerald-400 font-semibold mr-1">{{ m.deliveredShipments }}</span> livrés avec succès
+        </div>
+      </div>
+
+      <!-- On-Time Rate -->
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-sm relative overflow-hidden group hover:border-slate-700 transition-colors">
+        <div class="flex justify-between items-start">
+          <div>
+            <p class="text-xs font-medium text-slate-400 uppercase tracking-wider">Ponctualité SLA</p>
+            <h3 class="text-3xl font-extrabold text-emerald-400 mt-2">{{ m.onTimeDeliveryRatePercentage }}%</h3>
+            <span class="text-xs text-slate-400 mt-1 inline-block">objectif contractuel: 95.0%</span>
+          </div>
+          <div class="w-11 h-11 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xl border border-emerald-500/20">
+            🎯
+          </div>
+        </div>
+        <div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center text-xs text-emerald-400 font-medium">
+          <span>SLA opérationnel respecté</span>
+        </div>
+      </div>
+
+      <!-- Delayed / Incidents -->
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-sm relative overflow-hidden group hover:border-slate-700 transition-colors">
+        <div class="flex justify-between items-start">
+          <div>
+            <p class="text-xs font-medium text-slate-400 uppercase tracking-wider">Retards & Alertes</p>
+            <h3 class="text-3xl font-extrabold text-rose-400 mt-2">{{ m.delayedShipments }}</h3>
+            <span class="text-xs text-slate-400 mt-1 inline-block">{{ m.activeIncidentsCount }} incidents en cours</span>
+          </div>
+          <div class="w-11 h-11 rounded-xl bg-rose-500/10 text-rose-400 flex items-center justify-center text-xl border border-rose-500/20">
+            ⚠️
+          </div>
+        </div>
+        <div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center text-xs text-rose-400 font-medium">
+          <span>Intervention prioritaire requise</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Warehouses Utilization Quick View -->
+    <div class="bg-gradient-to-r from-slate-900 via-slate-900 to-indigo-950/40 border border-slate-800 rounded-2xl p-6">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+          <h2 class="text-lg font-bold text-white flex items-center gap-2">
+            <span>🏢</span> Taux d'Occupation des Hubs Nationaux
+          </h2>
+          <p class="text-xs text-slate-400 mt-0.5">
+            Capacité moyenne cumulée sur {{ m.totalWarehouses }} entrepôts de distribution : 
+            <strong class="text-indigo-400">{{ m.averageWarehouseUtilizationPercentage }}%</strong>
+          </p>
+        </div>
+        <a routerLink="/warehouses" class="text-xs font-semibold text-indigo-400 hover:text-indigo-300 transition-colors flex items-center gap-1">
+          Détails des entrepôts &rarr;
+        </a>
+      </div>
+      <div class="w-full bg-slate-800 rounded-full h-3 mt-4 overflow-hidden">
+        <div class="bg-gradient-to-r from-indigo-500 to-emerald-400 h-3 rounded-full transition-all duration-700" 
+             [style.width.%]="m.averageWarehouseUtilizationPercentage"></div>
+      </div>
+    </div>
+
+    <!-- Recent Shipments Table -->
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-sm">
+      <div class="p-5 border-b border-slate-800 flex items-center justify-between">
+        <h2 class="text-base font-bold text-white flex items-center gap-2">
+          <span>📋</span> Dernières Expéditions Opérationnelles
+        </h2>
+        <a routerLink="/shipments" class="text-xs text-indigo-400 hover:text-indigo-300 font-medium">
+          Voir tout le fret &rarr;
+        </a>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-sm">
+          <thead class="bg-slate-950/60 text-xs uppercase text-slate-400 border-b border-slate-800">
+            <tr>
+              <th class="px-5 py-3">Tracking</th>
+              <th class="px-5 py-3">Expéditeur &rarr; Destinataire</th>
+              <th class="px-5 py-3">Itinéraire</th>
+              <th class="px-5 py-3">Statut</th>
+              <th class="px-5 py-3">Priorité</th>
+              <th class="px-5 py-3">Livraison estimée</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-800/60 text-slate-300">
+            @for (s of m.recentShipments; track s.id) {
+              <tr class="hover:bg-slate-800/40 transition-colors">
+                <td class="px-5 py-3.5 font-mono text-xs font-bold text-indigo-400">
+                  {{ s.trackingNumber }}
+                </td>
+                <td class="px-5 py-3.5">
+                  <div class="font-medium text-white text-xs">{{ s.senderName }}</div>
+                  <div class="text-[11px] text-slate-400">Pour : {{ s.recipientName }}</div>
+                </td>
+                <td class="px-5 py-3.5 text-xs">
+                  <span>{{ s.originAddress.city }}</span>
+                  <span class="text-slate-500 mx-1.5">&rarr;</span>
+                  <span class="text-slate-200">{{ s.destinationAddress.city }}</span>
+                </td>
+                <td class="px-5 py-3.5">
+                  <span [ngClass]="getStatusBadgeClass(s.status)" class="px-2.5 py-1 rounded-full text-xs font-semibold inline-flex items-center gap-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full" [ngClass]="getStatusDotClass(s.status)"></span>
+                    {{ getStatusLabel(s.status) }}
+                  </span>
+                </td>
+                <td class="px-5 py-3.5">
+                  <span [ngClass]="getPriorityBadgeClass(s.priority)" class="px-2 py-0.5 rounded text-[11px] font-medium">
+                    {{ getPriorityLabel(s.priority) }}
+                  </span>
+                </td>
+                <td class="px-5 py-3.5 text-xs text-slate-400">
+                  {{ s.estimatedDeliveryDateUtc | date:'dd/MM/yyyy HH:mm' }}
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  } @else {
+    <!-- Skeleton Loading State -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      @for (i of [1,2,3,4]; track i) {
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 animate-pulse h-32"></div>
+      }
+    </div>
+  }
+</div>

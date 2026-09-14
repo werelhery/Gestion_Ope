@@ -1,0 +1,52 @@
+<div class="space-y-6">
+  <div>
+    <h1 class="text-2xl font-bold text-white tracking-tight">Supervision des Incidents & Alertes SLA</h1>
+    <p class="text-sm text-slate-400 mt-0.5">
+      Suivi des anomalies de transport, déviations de température et gestion proactive des retards de livraison.
+    </p>
+  </div>
+
+  <!-- Incidents list -->
+  <div class="space-y-4">
+    @for (inc of incidentStore.incidents(); track inc.id) {
+      <div class="bg-slate-900 border rounded-2xl p-5 shadow-sm space-y-3"
+           [ngClass]="inc.severity >= IncidentSeverity.Major ? 'border-rose-500/40 bg-rose-950/10' : 'border-slate-800'">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div class="flex items-center gap-3">
+            <span class="px-2.5 py-1 rounded-full text-xs font-bold"
+                  [ngClass]="getSeverityBadgeClass(inc.severity)">
+              {{ getSeverityLabel(inc.severity) }}
+            </span>
+            <span class="font-mono text-xs font-bold text-slate-400">{{ inc.code }}</span>
+            @if (inc.shipmentTrackingNumber) {
+              <span class="text-xs text-indigo-400 font-mono">
+                (Tracking: {{ inc.shipmentTrackingNumber }})
+              </span>
+            }
+          </div>
+          <span class="text-xs text-slate-400">
+            Signalé le {{ inc.reportedAtUtc | date:'dd/MM/yyyy à HH:mm' }}
+          </span>
+        </div>
+
+        <div>
+          <h3 class="text-base font-bold text-white">{{ inc.title }}</h3>
+          <p class="text-xs text-slate-300 mt-1 leading-relaxed">{{ inc.description }}</p>
+        </div>
+
+        <div class="pt-2 border-t border-slate-800/80 flex items-center justify-between text-xs">
+          <span class="text-slate-400">
+            Statut : <strong class="text-amber-400 font-medium">{{ getStatusLabel(inc.status) }}</strong>
+          </span>
+          <span class="text-[11px] text-slate-500 font-mono">ID: {{ inc.id }}</span>
+        </div>
+      </div>
+    } @empty {
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-12 text-center text-slate-400">
+        <span class="text-3xl block mb-2">🎉</span>
+        <h3 class="text-base font-bold text-white">Aucun incident ouvert</h3>
+        <p class="text-xs text-slate-500 mt-1">L'ensemble de la chaîne logistique opère normalement dans le respect des SLA contractuels.</p>
+      </div>
+    }
+  </div>
+</div>

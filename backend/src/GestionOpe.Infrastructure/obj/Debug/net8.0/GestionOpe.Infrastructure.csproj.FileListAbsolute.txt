@@ -1,0 +1,17 @@
+C:\Antigravity\PoleEmploi\Gestion_Ope\backend\src\GestionOpe.Infrastructure\bin\Debug\net8.0\GestionOpe.Infrastructure.deps.json
+C:\Antigravity\PoleEmploi\Gestion_Ope\backend\src\GestionOpe.Infrastructure\bin\Debug\net8.0\GestionOpe.Infrastructure.dll
+C:\Antigravity\PoleEmploi\Gestion_Ope\backend\src\GestionOpe.Infrastructure\bin\Debug\net8.0\GestionOpe.Infrastructure.pdb
+C:\Antigravity\PoleEmploi\Gestion_Ope\backend\src\GestionOpe.Infrastructure\bin\Debug\net8.0\GestionOpe.Application.dll
+C:\Antigravity\PoleEmploi\Gestion_Ope\backend\src\GestionOpe.Infrastructure\bin\Debug\net8.0\GestionOpe.Domain.dll
+C:\Antigravity\PoleEmploi\Gestion_Ope\backend\src\GestionOpe.Infrastructure\bin\Debug\net8.0\GestionOpe.Domain.pdb
+C:\Antigravity\PoleEmploi\Gestion_Ope\backend\src\GestionOpe.Infrastructure\bin\Debug\net8.0\GestionOpe.Application.pdb
+C:\Antigravity\PoleEmploi\Gestion_Ope\backend\src\GestionOpe.Infrastructure\obj\Debug\net8.0\GestionOpe.Infrastructure.csproj.AssemblyReference.cache
+C:\Antigravity\PoleEmploi\Gestion_Ope\backend\src\GestionOpe.Infrastructure\obj\Debug\net8.0\GestionOpe.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Antigravity\PoleEmploi\Gestion_Ope\backend\src\GestionOpe.Infrastructure\obj\Debug\net8.0\GestionOpe.Infrastructure.AssemblyInfoInputs.cache
+C:\Antigravity\PoleEmploi\Gestion_Ope\backend\src\GestionOpe.Infrastructure\obj\Debug\net8.0\GestionOpe.Infrastructure.AssemblyInfo.cs
+C:\Antigravity\PoleEmploi\Gestion_Ope\backend\src\GestionOpe.Infrastructure\obj\Debug\net8.0\GestionOpe.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Antigravity\PoleEmploi\Gestion_Ope\backend\src\GestionOpe.Infrastructure\obj\Debug\net8.0\GestionO.3D65795E.Up2Date
+C:\Antigravity\PoleEmploi\Gestion_Ope\backend\src\GestionOpe.Infrastructure\obj\Debug\net8.0\GestionOpe.Infrastructure.dll
+C:\Antigravity\PoleEmploi\Gestion_Ope\backend\src\GestionOpe.Infrastructure\obj\Debug\net8.0\refint\GestionOpe.Infrastructure.dll
+C:\Antigravity\PoleEmploi\Gestion_Ope\backend\src\GestionOpe.Infrastructure\obj\Debug\net8.0\GestionOpe.Infrastructure.pdb
+C:\Antigravity\PoleEmploi\Gestion_Ope\backend\src\GestionOpe.Infrastructure\obj\Debug\net8.0\ref\GestionOpe.Infrastructure.dll

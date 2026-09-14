@@ -1,0 +1,11 @@
+C:\Antigravity\PoleEmploi\Gestion_Ope\backend\src\GestionOpe.Domain\bin\Debug\net8.0\GestionOpe.Domain.deps.json
+C:\Antigravity\PoleEmploi\Gestion_Ope\backend\src\GestionOpe.Domain\bin\Debug\net8.0\GestionOpe.Domain.dll
+C:\Antigravity\PoleEmploi\Gestion_Ope\backend\src\GestionOpe.Domain\bin\Debug\net8.0\GestionOpe.Domain.pdb
+C:\Antigravity\PoleEmploi\Gestion_Ope\backend\src\GestionOpe.Domain\obj\Debug\net8.0\GestionOpe.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Antigravity\PoleEmploi\Gestion_Ope\backend\src\GestionOpe.Domain\obj\Debug\net8.0\GestionOpe.Domain.AssemblyInfoInputs.cache
+C:\Antigravity\PoleEmploi\Gestion_Ope\backend\src\GestionOpe.Domain\obj\Debug\net8.0\GestionOpe.Domain.AssemblyInfo.cs
+C:\Antigravity\PoleEmploi\Gestion_Ope\backend\src\GestionOpe.Domain\obj\Debug\net8.0\GestionOpe.Domain.csproj.CoreCompileInputs.cache
+C:\Antigravity\PoleEmploi\Gestion_Ope\backend\src\GestionOpe.Domain\obj\Debug\net8.0\GestionOpe.Domain.dll
+C:\Antigravity\PoleEmploi\Gestion_Ope\backend\src\GestionOpe.Domain\obj\Debug\net8.0\refint\GestionOpe.Domain.dll
+C:\Antigravity\PoleEmploi\Gestion_Ope\backend\src\GestionOpe.Domain\obj\Debug\net8.0\GestionOpe.Domain.pdb
+C:\Antigravity\PoleEmploi\Gestion_Ope\backend\src\GestionOpe.Domain\obj\Debug\net8.0\ref\GestionOpe.Domain.dll

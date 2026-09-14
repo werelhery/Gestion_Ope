@@ -1,0 +1,66 @@
+<div class="min-h-[80vh] flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-md w-full space-y-8 bg-slate-900/90 border border-slate-800 rounded-3xl p-8 shadow-2xl backdrop-blur-md">
+    <!-- Header -->
+    <div class="text-center space-y-2">
+      <div class="w-14 h-14 mx-auto rounded-2xl bg-gradient-to-tr from-indigo-600 to-emerald-400 flex items-center justify-center shadow-lg shadow-indigo-500/20 font-extrabold text-2xl text-white">
+        GO
+      </div>
+      <h2 class="text-2xl font-extrabold text-white tracking-tight">Portail SaaS Gestion_Ope</h2>
+      <p class="text-xs text-slate-400">Authentification sécurisée avec JWT & RBAC</p>
+    </div>
+
+    @if (authStore.errorMessage(); as err) {
+      <div class="p-3.5 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-400 text-xs">
+        {{ err }}
+      </div>
+    }
+
+    <!-- Login Form -->
+    <form (ngSubmit)="onSubmit()" class="space-y-4">
+      <div>
+        <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">Adresse Email</label>
+        <input type="email" [(ngModel)]="email" name="email" required
+               placeholder="admin@gestionope.fr"
+               class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500" />
+      </div>
+
+      <div>
+        <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">Mot de Passe</label>
+        <input type="password" [(ngModel)]="password" name="password" required
+               placeholder="••••••••"
+               class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500" />
+      </div>
+
+      <button type="submit" [disabled]="authStore.isLoading()"
+              class="w-full py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 disabled:opacity-50 text-white text-xs font-bold uppercase tracking-wider shadow-lg shadow-indigo-600/30 transition-all">
+        @if (authStore.isLoading()) {
+          Connexion en cours...
+        } @else {
+          Accéder à la plateforme
+        }
+      </button>
+    </form>
+
+    <!-- 1-Click Demo Profiles -->
+    <div class="pt-6 border-t border-slate-800 space-y-3">
+      <p class="text-xs text-slate-400 text-center font-medium">Comptes de démonstration préconfigurés :</p>
+      <div class="grid grid-cols-1 gap-2 text-xs">
+        <button (click)="demoLogin('admin')"
+                class="w-full py-2 px-3 rounded-xl bg-slate-800/80 hover:bg-slate-800 border border-slate-700 text-slate-200 font-semibold flex items-center justify-between transition-colors">
+          <span>👑 Administrateur (Accès Total)</span>
+          <span class="text-indigo-400 font-mono text-[11px]">1-Clic &rarr;</span>
+        </button>
+        <button (click)="demoLogin('manager')"
+                class="w-full py-2 px-3 rounded-xl bg-slate-800/80 hover:bg-slate-800 border border-slate-700 text-slate-200 font-semibold flex items-center justify-between transition-colors">
+          <span>📋 Responsable Logistique</span>
+          <span class="text-indigo-400 font-mono text-[11px]">1-Clic &rarr;</span>
+        </button>
+        <button (click)="demoLogin('operator')"
+                class="w-full py-2 px-3 rounded-xl bg-slate-800/80 hover:bg-slate-800 border border-slate-700 text-slate-200 font-semibold flex items-center justify-between transition-colors">
+          <span>🏢 Opérateur Entrepôt</span>
+          <span class="text-indigo-400 font-mono text-[11px]">1-Clic &rarr;</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

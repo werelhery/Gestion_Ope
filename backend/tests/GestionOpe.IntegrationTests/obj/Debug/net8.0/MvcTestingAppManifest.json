@@ -1,0 +1,6 @@
+{
+  "GestionOpe.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Antigravity\\PoleEmploi\\Gestion_Ope\\backend\\src\\GestionOpe.Api",
+  "GestionOpe.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Antigravity\\PoleEmploi\\Gestion_Ope\\backend\\src\\GestionOpe.Application",
+  "GestionOpe.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Antigravity\\PoleEmploi\\Gestion_Ope\\backend\\src\\GestionOpe.Domain",
+  "GestionOpe.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Antigravity\\PoleEmploi\\Gestion_Ope\\backend\\src\\GestionOpe.Infrastructure"
+}

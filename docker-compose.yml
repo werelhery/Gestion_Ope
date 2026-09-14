@@ -1,0 +1,64 @@
+version: '3.8'
+
+services:
+  # ----------------------------------------------------------------------------
+  # PostgreSQL Database Service
+  # ----------------------------------------------------------------------------
+  db:
+    image: postgres:16-alpine
+    container_name: gestion_ope_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: gestion_ope_user
+      POSTGRES_PASSWORD: SecretPassword2026!
+      POSTGRES_DB: gestion_ope_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U gestion_ope_user -d gestion_ope_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ----------------------------------------------------------------------------
+  # Backend .NET 8 REST API Service (Clean Architecture + CQRS)
+  # ----------------------------------------------------------------------------
+  api:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: gestion_ope_api
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+:5000
+      - ConnectionStrings__DefaultConnection=Host=db;Port=5432;Database=gestion_ope_db;Username=gestion_ope_user;Password=SecretPassword2026!
+      - Jwt__Secret=SuperSecretKeyGestionOpe2026SecureKeyWithAtLeast32Chars!
+      - Jwt__Issuer=GestionOpe
+      - Jwt__Audience=GestionOpeClient
+      - Jwt__ExpirationMinutes=480
+    ports:
+      - "5000:5000"
+
+  # ----------------------------------------------------------------------------
+  # Frontend Service (Angular 18 Standalone + TailwindCSS + Nginx)
+  # ----------------------------------------------------------------------------
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: gestion_ope_frontend
+    restart: unless-stopped
+    depends_on:
+      - api
+    ports:
+      - "4200:80"
+
+volumes:
+  postgres_data:
+    driver: local

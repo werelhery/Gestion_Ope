@@ -1,0 +1,15 @@
+C:\Antigravity\PoleEmploi\Gestion_Ope\backend\src\GestionOpe.Application\obj\Debug\net8.0\GestionOpe.Application.csproj.AssemblyReference.cache
+C:\Antigravity\PoleEmploi\Gestion_Ope\backend\src\GestionOpe.Application\obj\Debug\net8.0\GestionOpe.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Antigravity\PoleEmploi\Gestion_Ope\backend\src\GestionOpe.Application\obj\Debug\net8.0\GestionOpe.Application.AssemblyInfoInputs.cache
+C:\Antigravity\PoleEmploi\Gestion_Ope\backend\src\GestionOpe.Application\obj\Debug\net8.0\GestionOpe.Application.AssemblyInfo.cs
+C:\Antigravity\PoleEmploi\Gestion_Ope\backend\src\GestionOpe.Application\obj\Debug\net8.0\GestionOpe.Application.csproj.CoreCompileInputs.cache
+C:\Antigravity\PoleEmploi\Gestion_Ope\backend\src\GestionOpe.Application\bin\Debug\net8.0\GestionOpe.Application.deps.json
+C:\Antigravity\PoleEmploi\Gestion_Ope\backend\src\GestionOpe.Application\bin\Debug\net8.0\GestionOpe.Application.dll
+C:\Antigravity\PoleEmploi\Gestion_Ope\backend\src\GestionOpe.Application\bin\Debug\net8.0\GestionOpe.Application.pdb
+C:\Antigravity\PoleEmploi\Gestion_Ope\backend\src\GestionOpe.Application\bin\Debug\net8.0\GestionOpe.Domain.dll
+C:\Antigravity\PoleEmploi\Gestion_Ope\backend\src\GestionOpe.Application\bin\Debug\net8.0\GestionOpe.Domain.pdb
+C:\Antigravity\PoleEmploi\Gestion_Ope\backend\src\GestionOpe.Application\obj\Debug\net8.0\GestionO.9017EFF5.Up2Date
+C:\Antigravity\PoleEmploi\Gestion_Ope\backend\src\GestionOpe.Application\obj\Debug\net8.0\GestionOpe.Application.dll
+C:\Antigravity\PoleEmploi\Gestion_Ope\backend\src\GestionOpe.Application\obj\Debug\net8.0\refint\GestionOpe.Application.dll
+C:\Antigravity\PoleEmploi\Gestion_Ope\backend\src\GestionOpe.Application\obj\Debug\net8.0\GestionOpe.Application.pdb
+C:\Antigravity\PoleEmploi\Gestion_Ope\backend\src\GestionOpe.Application\obj\Debug\net8.0\ref\GestionOpe.Application.dll

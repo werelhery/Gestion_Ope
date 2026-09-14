@@ -1,0 +1,58 @@
+<div class="space-y-6">
+  <div>
+    <h1 class="text-2xl font-bold text-white tracking-tight">Hubs & Entrepôts Logistiques</h1>
+    <p class="text-sm text-slate-400 mt-0.5">
+      Surveillance des capacités de stockage, saturation volumétrique et gestion des plateformes régionales.
+    </p>
+  </div>
+
+  <!-- Warehouse Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    @for (w of warehouseStore.warehouses(); track w.id) {
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-sm space-y-4 hover:border-slate-700 transition-colors">
+        <!-- Header card -->
+        <div class="flex items-start justify-between">
+          <div>
+            <span class="font-mono text-xs font-bold text-indigo-400 uppercase tracking-wider">{{ w.code }}</span>
+            <h3 class="text-lg font-bold text-white mt-1">{{ w.name }}</h3>
+            <p class="text-xs text-slate-400">{{ w.address.street }}, {{ w.address.city }} ({{ w.address.postalCode }})</p>
+          </div>
+          <span class="px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+            Opérationnel
+          </span>
+        </div>
+
+        <!-- Capacity Progress -->
+        <div class="space-y-2 pt-2 border-t border-slate-800/80">
+          <div class="flex justify-between text-xs">
+            <span class="text-slate-400">Occupation Volumétrique</span>
+            <span class="font-bold font-mono" [ngClass]="getCapacityTextColor(w.capacityUtilizationPercentage)">
+              {{ w.capacityUtilizationPercentage }}% ({{ w.usedCapacityM3 | number }} / {{ w.totalCapacityM3 | number }} m³)
+            </span>
+          </div>
+          <div class="w-full bg-slate-950 rounded-full h-2.5 overflow-hidden">
+            <div class="h-2.5 rounded-full transition-all duration-700"
+                 [ngClass]="getCapacityBarColor(w.capacityUtilizationPercentage)"
+                 [style.width.%]="w.capacityUtilizationPercentage"></div>
+          </div>
+        </div>
+
+        <!-- Details & Contact -->
+        <div class="grid grid-cols-2 gap-3 pt-3 border-t border-slate-800/80 text-xs text-slate-400">
+          <div>
+            <span class="text-slate-500 block text-[10px] uppercase font-semibold">Responsable Site</span>
+            <span class="text-slate-200 font-medium">{{ w.managerName }}</span>
+          </div>
+          <div>
+            <span class="text-slate-500 block text-[10px] uppercase font-semibold">Contact Téléphonique</span>
+            <span class="text-slate-200 font-medium">{{ w.contactPhone }}</span>
+          </div>
+          <div class="col-span-2">
+            <span class="text-slate-500 block text-[10px] uppercase font-semibold">Email d'exploitation</span>
+            <span class="text-indigo-400">{{ w.contactEmail }}</span>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</div>
